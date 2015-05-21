@@ -1,0 +1,1 @@
+API_DATA_BASE_URL = 'http://logs.tf/json/'
