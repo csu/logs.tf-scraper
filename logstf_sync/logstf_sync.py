@@ -14,7 +14,7 @@ def save_one_match(match_id):
         pass
 
 def save_one_match_parallel_wrapper(match_id):
-    if match_id % 512 == 0:
+    if match_id % 100 == 0:
         print match_id
     save_one_match(match_id)
 
