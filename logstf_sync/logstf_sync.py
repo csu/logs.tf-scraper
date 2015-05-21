@@ -20,6 +20,8 @@ def set_last_match_saved(file_path, last):
 def save_new_matches(lower, upper, save_result):
     for i in range(lower+1, upper+1):
         try:
-            save_result(i, PyLogsTF.get(i))
+            match_data = PyLogsTF.get(i)
+            save_result(i, match_data)
+            print len(match_data)
         except:
             pass
