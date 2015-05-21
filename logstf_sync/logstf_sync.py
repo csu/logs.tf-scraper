@@ -24,7 +24,7 @@ def parallel_save(lower, upper):
     match_ids = range(lower+1, upper+1)
     pool.map(save_one_match_parallel_wrapper, match_ids)
 
-def save_all_matches():
+def save_all_matches(last_file_path):
     latest_match = PyLogsTF.latest_match()
     parallel_save(0, latest_match)
     set_last_match_saved(last_file_path, latest_match)
