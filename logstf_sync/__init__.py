@@ -1,1 +1,1 @@
-import logstf_sync
+from logstf_sync import *
