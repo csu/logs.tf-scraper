@@ -13,16 +13,11 @@ def save_one_match(match_id):
     except:
         pass
 
-def save_one_match_parallel_wrapper(match_id):
-    if match_id % 100 == 0:
-        print match_id
-    save_one_match(match_id)
-
 def parallel_save(lower, upper):
     import multiprocessing as mp
     pool = mp.Pool(processes=mp.cpu_count())
     match_ids = range(lower+1, upper+1)
-    pool.map(save_one_match_parallel_wrapper, match_ids)
+    pool.map(save_one_match, match_ids)
 
 def save_all_matches(last_file_path):
     latest_match = PyLogsTF.latest_match()
