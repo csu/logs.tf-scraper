@@ -16,5 +16,5 @@ PyLogsTF.latest_match()
 Get all the matches since the last run:
 ```py
 import logstf_sync
-logstf_sync.run('last.txt')
+logstf_sync.run('last')
 ```
