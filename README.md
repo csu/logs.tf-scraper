@@ -1,4 +1,4 @@
-# Logs.tf Scraper 
+# Logs.tf Scraper
 Libraries and utilities for scraping (one-off and real-time) Logs.tf data.
 
 ## Usage
