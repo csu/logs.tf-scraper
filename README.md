@@ -10,6 +10,7 @@ PyLogsTF.get(828613)
 
 Get the id of the latest match:
 ```py
+import PyLogsTF
 PyLogsTF.latest_match()
 ```
 
