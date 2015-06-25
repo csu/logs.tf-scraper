@@ -1,5 +1,6 @@
 import PyLogsTF
 import save_to_disk
+import json
 
 def run(last_file_path):
     last_match_saved = get_last_match_saved(last_file_path)
@@ -12,6 +13,21 @@ def save_one_match(match_id):
         save_to_disk.save_match(match_id, PyLogsTF.get(match_id))
     except:
         pass
+
+def save_all_metadata():
+    last_id = 1
+    is_done = False
+    page = 1
+    big_dict = {}
+
+    while not is_done:
+        print 'page', page
+        result, is_done = PyLogsTF.get_match_metadata(last_id, page=page)
+        for match_id, meta_data in result.iteritems():
+            big_dict[match_id] = meta_data
+        page += 1
+
+    save_to_disk.save_match('initial_import', json.dumps(big_dict), folder='meta_data')
 
 def parallel_save(lower, upper):
     import multiprocessing as mp
