@@ -1,0 +1,2 @@
+import logstf_sync
+logstf_sync.save_all_matches()
