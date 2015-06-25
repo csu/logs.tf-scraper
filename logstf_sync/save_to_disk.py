@@ -1,7 +1,7 @@
 import os
 
-def save_match(match_id, match_data):
-    save_to_file('data', '%s.json' % match_id, match_data)
+def save_match(match_id, match_data, folder='data'):
+    save_to_file(folder, '%s.json' % match_id, match_data)
 
 def save_to_file(path, filename, data):
     file_path = os.path.join(path, filename)
