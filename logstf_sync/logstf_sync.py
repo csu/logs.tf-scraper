@@ -18,6 +18,7 @@ def save_all_metadata():
     last_id = 1
     is_done = False
     page = 1
+    dict_size = 0
     big_dict = {}
 
     while not is_done:
@@ -25,9 +26,15 @@ def save_all_metadata():
         result, is_done = PyLogsTF.get_match_metadata(last_id, page=page)
         for match_id, meta_data in result.iteritems():
             big_dict[match_id] = meta_data
+        dict_size += 1
+        if dict_size >= 1009:
+            save_to_disk.save_match('initial_import%s' % page, json.dumps(big_dict), folder='meta_data')
+            big_dict = {}
+            dict_size = 0
         page += 1
 
-    save_to_disk.save_match('initial_import', json.dumps(big_dict), folder='meta_data')
+    if big_dict:
+        save_to_disk.save_match('initial_import%s' % page, json.dumps(big_dict), folder='meta_data')
 
 def parallel_save(lower, upper):
     import multiprocessing as mp
