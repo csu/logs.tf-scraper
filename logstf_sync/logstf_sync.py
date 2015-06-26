@@ -17,7 +17,7 @@ def save_one_match(match_id):
 def save_all_metadata():
     last_id = 1
     is_done = False
-    page = 1
+    page = 2000
     dict_size = 0
     big_dict = {}
 
