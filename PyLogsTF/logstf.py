@@ -25,8 +25,8 @@ def get_match_metadata(min, page=False):
 			return result, True
 
 		match_name = cols[0].get_text()
-		map_name = str(cols[1].get_text())
-		game_type = str(cols[2].get_text())
+		map_name = cols[1].get_text()
+		game_type = cols[2].get_text()
 		datetime = int(cols[4].get('data-timestamp'))
 		result[match_id] = {
 			'title': match_name,
