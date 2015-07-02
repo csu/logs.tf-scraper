@@ -39,7 +39,7 @@ def save_all_metadata():
 def parallel_save(lower, upper):
     import multiprocessing as mp
     pool = mp.Pool(processes=mp.cpu_count())
-    match_ids = range(lower+1, upper+1)
+    match_ids = range(lower+1, upper+2)
     pool.map(save_one_match, match_ids)
 
 def save_all_matches(last_file_path):
