@@ -36,6 +36,7 @@ def save_all_metadata():
     if big_dict:
         save_to_disk.save_match('initial_import%s' % page, json.dumps(big_dict), folder='meta_data')
 
+# exclusive lower; inclusive upper
 def parallel_save(lower, upper):
     import multiprocessing as mp
     pool = mp.Pool(processes=mp.cpu_count())
